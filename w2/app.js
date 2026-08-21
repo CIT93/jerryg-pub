@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function(){
     console.log(`DOM fully loaded and parsed, App is ready for interaction`);
     // Attach an event listener to our 'addButton.
     // When 'addButton' receives a 'click' event, the 'handleButtonClick' function will execute.
+    //Event listener was already attached to my new button variable name starting in step 2.1 when updating JS variable names to match, and to check handleButtonClick() functionality
     addButton.addEventListener('click', handleButtonClick);
 
     totalDisplayElement.textContent = `Current Total: $${totalCost}`;
