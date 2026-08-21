@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4; /* A light grey background */
+    color: #333;
+}
+
+h1 {
+    color: #0056b3;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* The .container class is defined but not strictly needed for this minimal HTML, but it's good practice to keep it consistent for future expansion. */
+.container {
+   max-width: 800px;
+   margin: 0 auto; /* Center the content */
+   padding: 15px;
+   background-color: #ffffff;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   border-radius: 8px;
+}
