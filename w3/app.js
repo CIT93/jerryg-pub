@@ -1,3 +1,5 @@
+import * as orderForm from "./order-handler.js";
+
 console.log('Hello from app.js! Your JavaScript is connected and running!');
 // --- Part 1: Select HTML Elements ----
 // We use document.getElementById() to get a reference to an element by its unique ID.
