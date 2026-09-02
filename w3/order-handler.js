@@ -15,7 +15,7 @@ const getSelectedRadioValue = function (radioButtons) {
 };
 
 export const getOrderInputs = function () {
-    
+
     return {
         qty: parseInt(quantityInput.value) || 1,
         size: getSelectedRadioValue(sizeTypeRadios),
@@ -24,5 +24,5 @@ export const getOrderInputs = function () {
 
 };
 
-    // TEMPORARY TEST:
-console.log(getOrderInputs());
+// TEMPORARY TEST:
+//console.log(getOrderInputs());
