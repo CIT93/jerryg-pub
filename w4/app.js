@@ -6,6 +6,8 @@ console.log('Hello from app.js! Your JavaScript is connected and running!');
 const orderForm = document.getElementById('order-form');
 const orderSummary = document.getElementById('order-summary');
 
+const orders = [];
+
 const handleOrderSubmit = function (event) {
     event.preventDefault();
     const orderData = orderHandler.getOrderInputs();
@@ -19,9 +21,17 @@ const handleOrderSubmit = function (event) {
     if (orderData.giftWrap) message += ' - gift wrapped';
     else message = `Ordered ${orderData.qty} ${orderData.size} T-Shirts`
     orderSummary.textContent = message;
-    const orderPrice = priceCalculator.calculateTotal(orderData);
+    const calculatedPrice = priceCalculator.calculateTotal(orderData);
     //output our object literal with the price
-    console.log(orderPrice);
+    //console.log(`calculatedPrice obj literal: ${calculatedPrice}`);
+    const newOrder = {
+        ...orderData,
+        ...calculatedPrice,
+        timestamp: new Date().toISOString()
+    };
+    orders.push(newOrder);
+    console.log('orders array: ');
+    console.log(orders);
 };
 
 
