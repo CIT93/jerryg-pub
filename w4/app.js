@@ -1,10 +1,11 @@
 import * as orderHandler from "./order-handler.js";
 import * as priceCalculator from "./price-calculator.js";
+import * as resultsDisplay from "./results-display.js";
 
 console.log('Hello from app.js! Your JavaScript is connected and running!');
 
 const orderForm = document.getElementById('order-form');
-const orderSummary = document.getElementById('order-summary');
+//const orderSummary = document.getElementById('order-summary');
 
 const orders = [];
 
@@ -20,7 +21,7 @@ const handleOrderSubmit = function (event) {
     //const isGiftWrap = orderForm.querySelector('#gift-wrap').checked;
     if (orderData.giftWrap) message += ' - gift wrapped';
     else message = `Ordered ${orderData.qty} ${orderData.size} T-Shirts`
-    orderSummary.textContent = message;
+    //orderSummary.textContent = message;
     const calculatedPrice = priceCalculator.calculateTotal(orderData);
     //output our object literal with the price
     //console.log(`calculatedPrice obj literal: ${calculatedPrice}`);
@@ -32,6 +33,8 @@ const handleOrderSubmit = function (event) {
     orders.push(newOrder);
     console.log('orders array: ');
     console.log(orders);
+
+    resultsDisplay.displayResults(newOrder);
 };
 
 
