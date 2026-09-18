@@ -34,7 +34,7 @@ const handleOrderSubmit = function (event) {
     console.log('orders array: ');
     console.log(orders);
 
-    resultsDisplay.displayResults(newOrder);
+    resultsDisplay.displayOrder(newOrder);
 };
 
 
