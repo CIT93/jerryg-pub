@@ -32,7 +32,7 @@ const handleOrderSubmit = function (event) {
         timestamp: new Date().toISOString()
     };
     orders.push(newOrder);
-    //orderStorage.saveOrders(orders);
+    orderStorage.saveOrders(orders);
     console.log('orders array: ');
     console.log(orders);
 
