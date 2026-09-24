@@ -2,7 +2,7 @@ import * as orderHandler from "./order-handler.js";
 import * as priceCalculator from "./price-calculator.js";
 import * as resultsDisplay from "./results-display.js";
 import * as orderStorage from "./order-storage.js";
-//import * as orderList from "./order-list.js";
+import * as orderList from "./order-list.js";
 
 console.log('Hello from app.js! Your JavaScript is connected and running!');
 
@@ -35,7 +35,7 @@ const handleOrderSubmit = function (event) {
     orders.push(newOrder);
     orderStorage.saveOrders(orders);
 
-    //orderList.renderOrders(orders)
+    orderList.renderOrders(orders)
     
     console.log('orders array: ');
     console.log(orders);
@@ -50,7 +50,7 @@ const init = function () {
     if(loadOrders.length > 0) {
         orders.push(...loadOrders);
         console.log('Orders loaded from localStorage');
-        //orderList.renderOrders(orders);
+        orderList.renderOrders(orders);
     } else console.log('No orders found in localStorage');
     orderForm.addEventListener('submit', handleOrderSubmit);
 };
