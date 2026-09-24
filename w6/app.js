@@ -9,6 +9,11 @@ console.log('Hello from app.js! Your JavaScript is connected and running!');
 const orderForm = document.getElementById('order-form');
 //const orderSummary = document.getElementById('order-summary');
 
+
+//Button element we will use to clear both in-memory and localStorage arr; used in init()
+const clearButton = document.getElementById('clear-btn');
+
+
 const orders = [];
 
 const handleOrderSubmit = function (event) {
@@ -53,10 +58,16 @@ const init = function () {
         orderList.renderOrders(orders);
     } else console.log('No orders found in localStorage');
     orderForm.addEventListener('submit', handleOrderSubmit);
+
+    //anon callback function gets executed everytime clearButton is clicked
+    clearButton.addEventListener('click', function() {
+        orders.length = 0; //clear orders arr
+        localStorage.removeItem(orderStorage.LOCAL_STORAGE_KEY); //clear localStorage arr
+        orderList.renderOrders(orders); //re-render empty table
+    });
 };
 
 document.addEventListener('DOMContentLoaded', init);
-
 
 
 

@@ -1,4 +1,4 @@
-const LOCAL_STORAGE_KEY = 'tshirt_orders_data';
+export const LOCAL_STORAGE_KEY = 'tshirt_orders_data';
 
 export const saveOrders = function (orders) {
     try {
