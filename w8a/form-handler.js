@@ -52,11 +52,12 @@ export const getFormInputs = function () {
 };
 
 // Clears all input fields in the form and resets default selections.
+// form-handler.js
+
 export const clearForm = function () {
     carbonFootprintForm.reset();
     householdMembersInput.value = 1;
     homeSquareFootageInput.value = 0;
-    dietTypeRadios[0].checked;
-    foodPackagingRadios[0].checked;
-    // console.log('Clear Form');
+    dietTypeRadios[0].checked = false;
+    foodPackagingRadios[0].checked = false;
 };
