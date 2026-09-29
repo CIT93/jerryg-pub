@@ -58,6 +58,6 @@ export const clearForm = function () {
     carbonFootprintForm.reset();
     householdMembersInput.value = 1;
     homeSquareFootageInput.value = 0;
-    dietTypeRadios[0].checked = false;
-    foodPackagingRadios[0].checked = false;
+    dietTypeRadios[0].checked; //error fixed: removed assignment logic error
+    foodPackagingRadios[0].checked;
 };
