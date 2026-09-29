@@ -15,15 +15,16 @@ const foodPackagingFootprintDisplay = resultsContainer.querySelector('#foodPacka
 // Displays the calculated carbon footprint results in the results section.
 // @param {Object} results - An object containing the calculated footprint values (points).
 // Update the text content of each display element with the calculated points
+
+// results-display.js
+
 export const displayResults = function(results) {
-    // console.log(`inside the displayResults function`);
     totalFootprintDisplay.textContent = `${results.totalFootprint.toFixed(0)} Points`;
     householdFootprintDisplay.textContent = `Household Size: ${results.householdFootprint.toFixed(0)} Points`;
-    homeSizeFootprintDisplay.textContent = `House Size: ${results.homeSizeFootprint.toFixed(0)} Points`;
+    homeSizeFootprintDisplay.textContent = `House Size: ${results.homeSquareFootageFootprint.toFixed(0)} Points`;
     foodDietFootprintDisplay.textContent = `Food Diet: ${results.dietTypeFootprint.toFixed(0)} Points`;
     foodPackagingFootprintDisplay.textContent = `Food Packaging: ${results.foodPackagingFootprint.toFixed(0)} Points`;
 
-    // Make the entire results section visible
     resultsContainer.style.display = 'block';
 };
 
