@@ -17,13 +17,15 @@ const LOCAL_STORAGE_KEY = 'carbonFootprintEntries'
 // This is the primary function for persisting the current state of our entries.
 // @param {Array} entries - The array of carbon footprint entry objects to save.
 
+// storage.js
+
 export const saveEntries = function(entries) {
     
     // localStorage can only store strings. We must convert our JavaScript array of objects
     // into a JSON string using JSON.stringify() before saving.
     // Try Catch Block - Error Checking
     try {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(entries));
+        localStorage.setItem(LOCAL_STORAGE_KEY JSON.stringify(entries));
         console.log('Data saved to localStorage Successfully!');
     } catch (error) {
         console.error(`Error saving data to localStorage: ${error} `)
