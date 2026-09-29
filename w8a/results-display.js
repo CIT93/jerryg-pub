@@ -21,7 +21,7 @@ const foodPackagingFootprintDisplay = resultsContainer.querySelector('#foodPacka
 export const displayResults = function(results) {
     totalFootprintDisplay.textContent = `${results.totalFootprint.toFixed(0)} Points`;
     householdFootprintDisplay.textContent = `Household Size: ${results.householdFootprint.toFixed(0)} Points`;
-    homeSizeFootprintDisplay.textContent = `House Size: ${results.homeSquareFootageFootprint.toFixed(0)} Points`;
+    homeSizeFootprintDisplay.textContent = `House Size: ${results.homeSizeFootprint.toFixed(0)} Points`; //fixed error: homeSizeFootprint is correct property
     foodDietFootprintDisplay.textContent = `Food Diet: ${results.dietTypeFootprint.toFixed(0)} Points`;
     foodPackagingFootprintDisplay.textContent = `Food Packaging: ${results.foodPackagingFootprint.toFixed(0)} Points`;
 
