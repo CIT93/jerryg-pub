@@ -1,6 +1,9 @@
 const tableBody = document.getElementById('order-table-body');
 
+
+// @param {object} orders
 export const renderOrders = function(orders) {
+    // reset tableBody row
     tableBody.innerHTML = ''
 
     for(const order of orders) {
@@ -13,6 +16,10 @@ export const renderOrders = function(orders) {
             <td>${order.qty}</td>
             <td>${order.size}</td>
             <td>${order.totalPrice}</td>
+            <td>
+                <button class="edit-btn" data-id="${order.id}">Edit</button>
+                <button class="delete-btn" data-id="${order.id}">Delete</button>
+            </td>
         `;
 
         tableBody.appendChild(rowElement);
