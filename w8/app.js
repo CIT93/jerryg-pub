@@ -33,6 +33,7 @@ const handleOrderSubmit = function (event) {
     //output our object literal with the price
     //console.log(`calculatedPrice obj literal: ${calculatedPrice}`);
     const newOrder = {
+        id: Date.now().toString(),
         ...orderData,
         ...calculatedPrice,
         timestamp: new Date().toISOString()
