@@ -16,6 +16,14 @@ const clearButton = document.getElementById('clear-btn');
 
 const orders = [];
 
+const handleDelete = function(id) {
+    console.log("App.js: Requesting delete for order", id);
+};
+
+const handleEdit = function(id) {
+    console.log("App.js: Requesting edit for order", id);
+};
+
 const handleOrderSubmit = function (event) {
     event.preventDefault();
     const orderData = orderHandler.getOrderInputs();
@@ -41,7 +49,10 @@ const handleOrderSubmit = function (event) {
     orders.push(newOrder);
     orderStorage.saveOrders(orders);
 
-    orderList.renderOrders(orders)
+    orderList.renderOrders(orders, {
+        onDelete: handleDelete,
+        onEdit: handleEdit
+    });
     
     console.log('orders array: ');
     console.log(orders);
@@ -56,7 +67,10 @@ const init = function () {
     if(loadOrders.length > 0) {
         orders.push(...loadOrders);
         console.log('Orders loaded from localStorage');
-        orderList.renderOrders(orders);
+        orderList.renderOrders(orders, {
+            onDelete: handleDelete,
+            onEdit: handleEdit
+        });
     } else console.log('No orders found in localStorage');
     orderForm.addEventListener('submit', handleOrderSubmit);
 
@@ -64,7 +78,10 @@ const init = function () {
     clearButton.addEventListener('click', function() {
         orders.length = 0; //clear orders arr
         localStorage.removeItem(orderStorage.LOCAL_STORAGE_KEY); //clear localStorage arr
-        orderList.renderOrders(orders); //re-render empty table
+        orderList.renderOrders(orders, { //re-render empty table
+            onDelete: handleDelete,
+            onEdit: handleEdit
+        }); 
     });
 };
 
