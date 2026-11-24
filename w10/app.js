@@ -34,6 +34,13 @@ const handleDelete = function(id) {
 
 const handleEdit = function(id) {
     console.log("App.js: Requesting edit for order", id);
+    const orderToEdit = orders.find(function(order) {
+        return order.id === id;
+    });
+ 
+    if(orderToEdit) {
+        orderHandler.populateFormForEdit(orderToEdit);
+    }
 };
 
 const handleOrderSubmit = function (event) {
