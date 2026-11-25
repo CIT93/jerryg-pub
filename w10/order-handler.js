@@ -34,6 +34,7 @@ export const populateFormForEdit = function(order) {
 export const getOrderInputs = function () {
 
     return {
+        id: orderIdInput.value || null,
         qty: parseInt(quantityInput.value) || 1,
         size: getSelectedRadioValue(sizeTypeRadios),
         giftWrap: isGiftWrap.checked

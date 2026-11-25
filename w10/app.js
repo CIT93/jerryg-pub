@@ -60,12 +60,26 @@ const handleOrderSubmit = function (event) {
     //output our object literal with the price
     //console.log(`calculatedPrice obj literal: ${calculatedPrice}`);
     const newOrder = {
-        id: Date.now().toString(),
-        ...orderData,
+        //id: Date.now().toString(),
+        ...orderData, //inclues hidden id in HTML
         ...calculatedPrice,
-        timestamp: new Date().toISOString()
+        //timestamp: new Date().toISOString()
     };
-    orders.push(newOrder);
+
+    if(orderData.id) {
+        const index = orders.findIndex(function(order) {
+            return order.id === orderData.id;
+        });
+        newOrder.timestamp = orders[index].timestamp;
+        orders[index] = newOrder;
+        //orders[index] = {...orderData, ...calculatedPrice};
+    } else {
+        newOrder.id = Date.now().toString(); //overwrites previous hidden id
+        newOrder.timestamp = new Date().toISOString();
+        orders.push(newOrder);
+    }
+
+
     orderStorage.saveOrders(orders);
 
     orderList.renderOrders(orders, {
@@ -77,6 +91,9 @@ const handleOrderSubmit = function (event) {
     console.log(orders);
 
     resultsDisplay.displayOrder(newOrder);
+
+    document.getElementById('order-id').value = '';
+    orderForm.reset();
 };
 
 
